@@ -1,7 +1,7 @@
 ARCADE STYLE MINI GAMES
 
 - Global Points System
-- Player plays minigames to earn points and redeem prizes (Awarded Randomly).
+- Player plays minigames to earn points and redeem prizes as a lucky draw game.
 
 Prizes:
 - Name Titles
