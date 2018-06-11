@@ -13,7 +13,7 @@ Prizes:
 - Player has to click as many targets as possible within a set time frame.
 
 
-(MVP) DIFFUSE THE BOMBS MINIGAME
+DIFFUSE THE BOMBS MINIGAME
 - Bombs will appear in random locations and player has to click them  a certain numner of times in order to diffuse and destroy them.
 - Bombs change color after a few seconds (Green => Yellow => Red) and will "explode" (Game Over).
 
