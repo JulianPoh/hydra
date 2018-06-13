@@ -1,17 +1,15 @@
 window.onload = function(){
+    //Declare game window
+    var gameWindow = document.getElementById("game-window");
+    //Set random x & y coordinates for game window.
+    var x = Math.floor(Math.random() * (780 - 20 + 1)) + 10;
+    var y = Math.floor(Math.random() * (480- 20 + 1)) + 10; 
 
-var gameWindow = document.getElementById("game-window");
-
-//Main Game Menu
     //Get playerName
     // var playerName = prompt("Please enter your name to start.");
-
     //Set playerScore to 0
-
-
-//Shooting Game
-    //Create Timer
-    //30000ms per round
+    // var playerScore = 0;
+    //Create Timer (30000ms per round)
     function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
         setInterval(function () {
@@ -26,33 +24,26 @@ var gameWindow = document.getElementById("game-window");
             }
         }, 1000);
     }   
-
-
-    //Create Target Destroyed Counter
-
-    //spawnSingleTarget Function
-        //Create target & set random spawn Location
-            var target
-            var targetCounter = 0;
-            //Randomize x&y coordinates
-            var x = Math.floor(Math.random() * (780 - 20 + 1)) + 10;
-            var y = Math.floor(Math.random() * (580- 20 + 1)) + 10; 
+            
             //Spawn Target Function
             function spawnTarget() {
                 var newDiv = document.createElement('div');
                 newDiv.setAttribute("id", "target-div");
-                newDiv.style.width = 50;
-                newDiv.style.height = 50;
-                newDiv.style.background = "red";
                 newDiv.style.position = "absolute"
                 newDiv.style.left = x+'px';
                 newDiv.style.top = y+'px'; 
+                //Create target in game window
                 gameWindow.appendChild(newDiv);
-                newDiv.addEventListener('click', function() {
-                    targetCounter ++
-                    // gameWindow,removeChild(newDiv);
-                    })
-                };
+                //Create cycling colors for target
+                // var colors = ["blue", "green", "yellow", "orange", "red"];
+                // for (var i=0; i<colors.length; i++) {
+                //     var colorChange = function() { 
+                //         newDiv.style.backgroundColor = colors[i];
+                //         var colorCycling = setInterval()
+                //     }   
+                // };
+
+                
         //Call Functions
         spawnTarget();
         //Set to despawn after x seconds
@@ -74,34 +65,6 @@ var gameWindow = document.getElementById("game-window");
             //Clicked targets <90% - gameState = false
         //Round ++, Spawn Speed ++
         //Repeat.
-
-
-//Diffuse Bomb Game
-    //Create Timer
-        //30000ms per round
-
-    //spawnSingleBomb Function
-        //Create Bomb and set random spawn location.
-        //Bomb starts green => blue => yellow => orange => red => "expodes"
-        //color change at 2000ms intervals
-        //add click event listener.
-            //click changes color back to previous state. If click on green, bomb destroyed.
-
-    //Game Play
-        //Instructions: Destroy all bombs
-        //gameState = true
-        //Start Timer.
-        //Spawn 1 bomb per 5ms. End on timer.
-        //Bomb explodes, gameState = False (Game Ends)
-        //Timer Ends => playerScore ++
-        //Round ++, Spawn targets ++
-        //Repeat.
-
-
-//Sorting Game
-
-
-//Prize Redemption
 
 
 

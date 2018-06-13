@@ -1,18 +1,48 @@
+
+header {
+    height: 50px;
+    width: 800px;
+    display: block;
+    background-color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px ;
+    color: green;
+    text-align: center;
+    padding: 10px 0;
+    vertical-align: center;
+}
+
+#game-info {
+    height: 50px;
+    width: 800px;
+    background-color: black;
+    display: block;
+    margin: 0 0 10px 0;
+    font-family: 'Press Start 2P', cursive;
+    color: green;
+    line-height: 25px;
+    text-align: left;
+}
+
 #game-timer {
-    /*display: none;*/
+    color: red;
 }
 
 #game-window {
-    height: 600px;
+    height: 500px;
     width: 800px;
-    border: 1px solid black;
     display: block;
+    background-color: black;
 }
 
 #target-div {
-    height: 20px;
-    width: 20px;
-    display: block;
-    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: blue;
+}
 
+.container {
+    width: 900px
+    margin: 0 auto;
 }
