@@ -4,7 +4,8 @@ window.onload = function(){
     var gameState = false;
     //Set random x & y coordinates for game window.
     var x = Math.floor(Math.random() * (780 - 20 + 1)) + 10;
-    var y = Math.floor(Math.random() * (580 - 20 + 1)) + 10; 
+    var y = Math.floor(Math.random() * (580 - 20 + 1)) + 10;
+
 
     //Get playerName
     // var playerName = prompt("Please enter your name to start.");
@@ -28,23 +29,50 @@ window.onload = function(){
             
     //Spawn Target Function
     function spawnTarget() {
-        var newDiv = document.createElement('div');
+        var newDiv = document.createElement('div'); 
         newDiv.setAttribute("id", "target-div");
         newDiv.style.position = "absolute"
         newDiv.style.left = x+'px';
         newDiv.style.top = y+'px';
         newDiv.style.backgroundColor = "green";
-        //Change target Color from green-orange-red
-        setTimeout(function(){ newDiv.style.backgroundColor = "yellow"; }, 1500);
-        setTimeout(function(){ newDiv.style.backgroundColor = "orange"; }, 3000);
-        setTimeout(function(){ newDiv.style.backgroundColor = "red"; }, 4500);
-        setTimeout(function(){ newDiv.style.backgroundColor = "red"; }, 6000);
-         
+
+    function modify() {
+        if (newDiv.style.backgroundColor == 'yellow') {
+            newDiv.style.backgroundColor = "green";
+        } else if (newDiv.style.backgroundColor == 'orange') {
+            newDiv.style.backgroundColor = "yellow";
+        } else if (newDiv.style.backgroundColor == 'red') {
+            newDiv.style.backgroundColor = "orange";
+        }
+    }
+
+    addEventListener('click', modify)
+
+    function checkNcolour () {
+        if (newDiv.style.backgroundColor == 'green') {
+            newDiv.style.backgroundColor = "yellow";
+        } else if (newDiv.style.backgroundColor == 'yellow') {
+            newDiv.style.backgroundColor = "orange";
+        } else if (newDiv.style.backgroundColor == 'orange') {
+            newDiv.style.backgroundColor = "red";
+        } else if (newDiv.style.backgroundColor == 'red') {
+            alert("KABOOM!");
+        }
+    }
+        var timer = setInterval(checkNcolour, 1500);
+
+
+
         //Create target in game window
         gameWindow.appendChild(newDiv);
     }
     
     
+    
+
+    // function removeTarget() {
+    //     gameWindow.removeChild(newDiv);
+    // }
               
     spawnTarget();
 
