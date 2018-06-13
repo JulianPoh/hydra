@@ -6,16 +6,28 @@
     <title>DIFFUSE</title>
 </head>
 <body>
-    <div class="container">
+    <div id="container">
+        
         <header>DIFFUSE</header>
 
         <div id="game-info">
-            <div id="player">PLAYER: <span id="player-name">NAME</span></div>
-            <div id="game-timer">TIME REMAINING: <span id="time">00:30:00</span></div>
+            <div id="player">PLAYER NAME: <span id="player-name">AAA</span></div>
+            <div id="score">SCORE: <span id="player-score">0000</span>
+            </div>
+            <div id="game-level">LEVEL: <span id="level">01</span></div>
+            <div id="game-timer">TIME REMAINING: <span id="game-time">00:30</span></div>
         </div>
-        <!-- <canvas id="game-canvas" width="800" height="600" ></canvas> -->
+
         <div id="game-window"></div>
 
+        <div id="game-instructions">
+            <ol>
+                <li>Bombs will appear and start changing color.</li>
+                <li>Click on the bombs when they are green to remove them.</li>
+                <li>Once a bomb has changed color, you will have to get it back to green by clicking to change it back to its previous color before you can remove it.</li>
+                <li>Once a bomb reaches red, it will explode and end the game.</li>
+            </ol>
+        </div>
     </div>
 
 <script src="script.js"></script>
