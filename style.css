@@ -17,7 +17,6 @@ header {
     width: 800px;
     background-color: black;
     display: block;
-    margin: 0 0 10px 0;
     font-family: 'Press Start 2P', cursive;
     color: green;
     line-height: 25px;
@@ -39,7 +38,6 @@ header {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background-color: blue;
 }
 
 .container {
