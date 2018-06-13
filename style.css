@@ -5,7 +5,6 @@ body {
 #container {
     width: 900px;
     margin: 0 auto;
-    border: 2px solid yellow;
 }
 
 header {
@@ -24,7 +23,8 @@ header {
 }
 
 #game-info {
-    width: 780px;
+    width: auto;
+    height: 80px;
     background-color: black;
     display: block;
     font-family: 'Press Start 2P', cursive;
@@ -44,13 +44,6 @@ header {
     padding: 10px;
 }
 
-#player-score {
-    color: yellow;
-}
-
-#score {
-    color: yellow;
-}
 
 #game-time {
     color: red;
@@ -60,26 +53,20 @@ header {
     color: red;
 }
 
-#game-level {
-    color: green;
-}
-
-#level {
-    color: green;
-}
-
 #game-window {
     height: 500px;
     width: 800px;
-    display: block;
     background-color: black;
-    margin: auto;
+    margin: 0 auto;
 }
 
 #target-div {
     height: 50px;
     width: 50px;
     border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
 }
 
 #game-instructions {
