@@ -2,10 +2,9 @@
 
 //Declare global variables
 var gameWindow = document.getElementById("game-window");
-var maxHydraHeads = 20;
+var maxHydraHeads = 100;
 var playerScore = 0;
-var theScore = document.getElementById("score")
-theScore.innerHTML = playerScore;
+
 
 for (var i=0; i<maxHydraHeads; i++) {  //Generate Heads
     var newHead = document.createElement("button");
@@ -35,13 +34,18 @@ var timer;
 function slowReveal() {
 
     function startCountDown() {
-        if (heads[headsCounter].style.backgroundColor == 'green') {
+        if (heads[headsCounter].style.backgroundColor == 'green' && timeLeft > 0) {
             heads[headsCounter].style.backgroundColor = "yellow";
-        } else if (heads[headsCounter].style.backgroundColor == 'yellow') {
+        } else if (heads[headsCounter].style.backgroundColor == 'yellow' && timeLeft > 0) {
             heads[headsCounter].style.backgroundColor = "orange";
-        } else if (heads[headsCounter].style.backgroundColor == 'orange') {
+        } else if (heads[headsCounter].style.backgroundColor == 'orange' && timeLeft > 0) {
             heads[headsCounter].style.backgroundColor = "red";
-        } else if (heads[headsCounter].style.backgroundColor == 'red') {
+        } else if (heads[headsCounter].style.backgroundColor == 'red' && timeLeft > 0) {
+            heads[headsCounter].style.display = "none";
+            gameWindow.style.backgroundColor = "red";
+            gameWindow.innerHTML = "GAME OVER";
+            gameState = false;
+        } else if (timeLeft == 0 ) {
             heads[headsCounter].style.display = "none";
             gameWindow.style.backgroundColor = "red";
             gameWindow.innerHTML = "GAME OVER";
@@ -52,7 +56,7 @@ function slowReveal() {
     if (headsCounter < maxHydraHeads){
         heads[headsCounter].style.display = "inline-block";
         headsCounter++;
-        timer = setInterval(startCountDown, 2000);
+        timer = setInterval(startCountDown, 3000);
     }
 }
 
@@ -70,6 +74,8 @@ function modify() {
         clearInterval(timer);
         this.style.display = "none";
         playerScore++;
+        var theScore = document.getElementById("score")
+        theScore.innerHTML = playerScore;
     }
 }
 
@@ -91,19 +97,20 @@ function modify() {
 // gameScore.innerHTML = playerScore;
 
 
-// //Game Timer Function
-// var timeLeft = 30;
-// var elem = document.getElementById('time');
-// var timerId = setInterval(countdown, 1000);
+//Game Timer Function
+var timeLeft = 30;
+var elem = document.getElementById('time');
+var timerId = setInterval(countdown, 1000);
 
-// function countdown() {
-//     if (timeLeft == -1) {
-//         clearTimeout(timerId);
-//     } else {
-//         elem.innerHTML = timeLeft;
-//         timeLeft--;
-//     }
-// }
+function countdown() {
+    if (timeLeft == -1) {
+        clearTimeout(timerId);
+    } else {
+        elem.innerHTML = timeLeft;
+        timeLeft--;
+    }
+}
+countdown();
 
 
 
