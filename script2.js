@@ -2,7 +2,7 @@
 
 //Declare global variables
 var gameWindow = document.getElementById("game-window");
-var maxHydraHeads = 50;
+var maxHydraHeads = 100;
 var playerScore = 0;
 
 
@@ -33,17 +33,16 @@ var timer;
 
 function slowReveal() {
 
-    function startCountDown() { //Color Changing Function
-        if (heads[headsCounter].style.backgroundColor == 'green' && timeLeft > 0) {
+    function startCountDown() {
+        if (heads[headsCounter].style.backgroundColor == 'green') {
             heads[headsCounter].style.backgroundColor = "yellow";
-        } else if (heads[headsCounter].style.backgroundColor == 'yellow' && timeLeft > 0) {
+        } else if (heads[headsCounter].style.backgroundColor == 'yellow') {
             heads[headsCounter].style.backgroundColor = "orange";
-        } else if (heads[headsCounter].style.backgroundColor == 'orange' && timeLeft > 0) {
+        } else if (heads[headsCounter].style.backgroundColor == 'orange') {
             heads[headsCounter].style.backgroundColor = "red";
-        } else if (heads[headsCounter].style.backgroundColor == 'red' && timeLeft > 0) {
+        } else if (heads[headsCounter].style.backgroundColor == 'red') {
             heads[headsCounter].style.display = "none";
             gameWindow.style.backgroundColor = "red";
-            clearTimeout(timerId);
             gameWindow.innerHTML = "GAME OVER";
             gameState = false;
         } else if (timeLeft <0 ) {
@@ -61,10 +60,10 @@ function slowReveal() {
     }
 }
 
-var revTimer = setInterval(slowReveal, 1000);
+var revTimer = setInterval(slowReveal, 750);
 
 
-function modify() { //Reverse Color & Clear Function
+function modify() {
     if (this.style.backgroundColor == 'yellow') {
         this.style.backgroundColor = "green";
     } else if (this.style.backgroundColor == 'orange') {
@@ -79,6 +78,24 @@ function modify() { //Reverse Color & Clear Function
         theScore.innerHTML = playerScore;
     }
 }
+
+
+
+
+
+
+
+
+
+// var gameState = false;
+// // Random x & y coordinates for game window.
+// // var x = Math.floor(Math.random() * (730 - 70 + 1)) + 10;
+// // var y = Math.floor(Math.random() * (430 - 70 + 1)) + 10;
+
+
+// var gameScore = document.getElementById("score");
+// gameScore.innerHTML = playerScore;
+
 
 //Game Timer Function
 var timeLeft = 30;
