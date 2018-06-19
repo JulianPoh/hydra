@@ -30,38 +30,43 @@ var heads = document.querySelectorAll("button");
 console.log(heads);
 var headsCounter = 0;
 var timer;
+var timerId;
 
-function slowReveal() {
 
-    function startCountDown() { //Color Changing Function
-        if (heads[headsCounter].style.backgroundColor == 'green' && timeLeft > 0) {
-            heads[headsCounter].style.backgroundColor = "yellow";
-        } else if (heads[headsCounter].style.backgroundColor == 'yellow' && timeLeft > 0) {
-            heads[headsCounter].style.backgroundColor = "orange";
-        } else if (heads[headsCounter].style.backgroundColor == 'orange' && timeLeft > 0) {
-            heads[headsCounter].style.backgroundColor = "red";
-        } else if (heads[headsCounter].style.backgroundColor == 'red' && timeLeft > 0) {
-            heads[headsCounter].style.display = "none";
+
+function startCountDown() { //Color Changing Function
+    for (var i = 0; i < heads.length; i++) {
+        if (heads[i].style.backgroundColor == 'green' && timeLeft > 0 && heads[i].style.display == 'inline-block') {
+            heads[i].style.backgroundColor = "yellow";
+        } else if (heads[i].style.backgroundColor == 'yellow' && timeLeft > 0 && heads[i].style.display == 'inline-block') {
+            heads[i].style.backgroundColor = "orange";
+        } else if (heads[i].style.backgroundColor == 'orange' && timeLeft > 0 && heads[i].style.display == 'inline-block') {
+            heads[i].style.backgroundColor = "red";
+        } else if (heads[i].style.backgroundColor == 'red' && timeLeft > 0 && heads[i].style.display == 'inline-block')  {
+            heads[i].style.display = "none";
             gameWindow.style.backgroundColor = "red";
             clearTimeout(timerId);
+            clearInterval(generalTime);
             gameWindow.innerHTML = "GAME OVER";
             gameState = false;
         } else if (timeLeft <0 ) {
-            heads[headsCounter].style.display = "none";
-            gameWindow.style.backgroundColor = "red";
-            gameWindow.innerHTML = "GAME OVER";
+            heads[i].style.display = "none";
+            gameWindow.style.backgroundColor = "blue";
+            gameWindow.innerHTML = "TIME OVER";
             gameState = false;
         }
     }
+}
 
+function slowReveal() {
     if (headsCounter < maxHydraHeads){
         heads[headsCounter].style.display = "inline-block";
         headsCounter++;
-        timer = setInterval(startCountDown, 3000);
+        // var timer = setInterval(function () {startCountDown(timer)}, 3000);
     }
 }
 
-var revTimer = setInterval(slowReveal, 1000);
+// var revTimer = setInterval(slowReveal, 1000);
 
 
 function modify() { //Reverse Color & Clear Function
@@ -83,7 +88,7 @@ function modify() { //Reverse Color & Clear Function
 //Game Timer Function
 var timeLeft = 30;
 var elem = document.getElementById('time');
-var timerId = setInterval(countdown, 1000);
+// var timerId = setInterval(countdown, 1000);
 
 function countdown() {
     if (timeLeft == -1) {
@@ -93,6 +98,18 @@ function countdown() {
         timeLeft--;
     }
 }
+
+var check = 0;
+function collate () {
+    countdown();
+    slowReveal();
+    check++;
+    if(check%3 == 0) {
+        startCountDown();
+    }
+}
+
+var generalTime = setInterval(collate, 1000);
 countdown();
 
 
